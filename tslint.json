@@ -1,0 +1,23 @@
+{
+    "extends": "tslint:recommended",
+    "rules": {
+      "triple-equals": [true, "allow-null-check"],
+      "indent": [true, "spaces", 4],
+      "arrow-parens": true,
+      "class-name": true,
+      "no-string-literal": false,
+      "interface-name": [true, "always-prefix"],
+      "import-spacing": true,
+      "semicolon": [true, "always"],
+      "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"],
+      "whitespace": [true, "check-branch", "check-decl", "check-operator", "check-module", "check-typecast", "check-preblock"],
+      "curly": [true],
+      "no-empty": [true, "allow-empty-catch"],
+      "no-var-keyword": true,
+      "eofline": true,
+      "space-before-function-paren": true,
+      "no-var-requires": false,
+      "object-literal-sort-keys": false,
+      "ordered-imports": false
+    }
+  }
