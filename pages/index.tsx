@@ -1,14 +1,11 @@
 import React from "react";
-import styled from "styled-components";
-import { Container, Box } from "bloomer";
-
-const Title = styled.h1`
-    color: cornflowerblue;
-`;
+import { Container, Title } from "bloomer";
+import Signup from "./components/signup";
 
 const Index: React.SFC = () => (
     <Container>
-        <Title>Hello world</Title>
+        <Title>Welcome to the Deaf Creators Conference</Title>
+        <Signup/>
     </Container>
 );
 
