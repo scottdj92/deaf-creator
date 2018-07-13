@@ -36,6 +36,7 @@
   "dependencies": {
     "@types/next": "^6.0.4",
     "@zeit/next-sass": "^0.2.0",
+    "babel-plugin-styled-components": "^1.5.1",
     "bloomer": "^0.6.3",
     "bulma": "^0.7.1",
     "formik": "^1.0.1",
