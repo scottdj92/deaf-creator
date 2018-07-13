@@ -6,7 +6,7 @@
       "arrow-parens": true,
       "class-name": true,
       "no-string-literal": false,
-      "interface-name": [true, "always-prefix"],
+      "interface-name": false,
       "import-spacing": true,
       "semicolon": [true, "always"],
       "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"],
