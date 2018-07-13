@@ -1,5 +1,5 @@
 import React from "react";
-import { Control, Input, Field as BloomerField, Label, Button, Checkbox } from "bloomer";
+import { Control, Field as BloomerField, Button, Checkbox } from "bloomer";
 import { FormikProps, Field, Form, FieldProps } from "formik";
 import { SignupFormSchema } from "../models";
 import FormTextField from "./form-text-field";

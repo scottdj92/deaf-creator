@@ -11,14 +11,19 @@ interface Props {
 type OwnProps = FieldProps<SignupFormSchema> & Props;
 const FormTextField: React.SFC<OwnProps> = ({ field, form, label, placeholder }) => (
     <Field>
-        <Label>{placeholder}</Label>
-        <Control>
+        <Label>{label}</Label>
+        <Control color={
+            form.touched[field.name]
+            && form.errors[field.name]
+            ? "warning"
+            : ""
+        }>
             <Input {...field} placeholder={placeholder}/>
         </Control>
         {
             form.touched[field.name]
             && form.errors[field.name]
-            ? <Notification>{form.errors[field.name]}</Notification>
+            ? <Notification>{form.error}</Notification>
             : null
         }
     </Field>
