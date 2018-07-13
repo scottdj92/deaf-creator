@@ -2,25 +2,22 @@ import React from "react";
 import { Control, Input, Field as BloomerField, Label, Button, Checkbox } from "bloomer";
 import { FormikProps, Field, Form, FieldProps } from "formik";
 import { SignupFormSchema } from "../models";
+import FormTextField from "./form-text-field";
 
 const SignupForm: React.SFC<FormikProps<SignupFormSchema>> = (props) => (
     <Form>
-        <Field name="name" render={({field, form}: FieldProps<SignupFormSchema>) => (
-            <BloomerField>
-                <Label>Your Name</Label>
-                <Control>
-                    <Input {...field} placeholder="Full Name"/>
-                </Control>
-            </BloomerField>
+        <Field name="name" render={(innerProps) => (
+            <FormTextField {...innerProps}
+                label="Your Name"
+                placeholder="Full Name"
+            />
         )}>
         </Field>
-        <Field name="email" render={({ field, form }: FieldProps<SignupFormSchema>) => (
-            <BloomerField>
-                <Label>Email Address</Label>
-                <Control>
-                    <Input {...field} placeholder="Email Address"/>
-                </Control>
-            </BloomerField>
+        <Field name="email" render={(innerProps) => (
+            <FormTextField {...innerProps}
+                label="Email Address"
+                placeholder="Email Address"
+            />
         )}>
         </Field>
         <Field name="optInNewsletter" render={({ field, form }: FieldProps<SignupFormSchema>) => (
