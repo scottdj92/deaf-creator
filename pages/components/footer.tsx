@@ -8,6 +8,7 @@ const Wrapper = styled.footer`
     text-align: center;
     background-color: papayawhip;
     padding: 15px;
+    margin-top: 30px;
 `;
 
 const Footer: React.SFC = () => (

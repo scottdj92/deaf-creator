@@ -1,7 +1,8 @@
 import React from "react";
-import { Control, Input, Field, Label, Notification } from "bloomer";
+import { Control, Input, Field, Label } from "bloomer";
 import { FieldProps } from "formik";
 import { SignupFormSchema } from "../models";
+import FormError from "./form-error";
 
 interface Props {
     label: string;
@@ -23,7 +24,7 @@ const FormTextField: React.SFC<OwnProps> = ({ field, form, label, placeholder })
         {
             form.touched[field.name]
             && form.errors[field.name]
-            ? <Notification>{form.error}</Notification>
+            ? <FormError message={form.errors[field.name]}/>
             : null
         }
     </Field>
