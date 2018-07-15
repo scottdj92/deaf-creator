@@ -13,7 +13,7 @@ const Wrapper = styled.footer`
 
 const Footer: React.SFC = () => (
     <Wrapper>
-        {`Made with `}
+        {`This site was made with `}
         <ReactLogo size={14}/>
         {` React, NextJS, TypeScript, and `}
         <Heart size={14}/>.
