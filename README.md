@@ -1,5 +1,4 @@
-# total-dev
-A basic SSR landing page for marketing purposes
+# The landing page website for the Deaf Creator conference
 
 ## Getting Started
 
