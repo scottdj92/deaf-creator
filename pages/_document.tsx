@@ -4,7 +4,7 @@ import Document, { Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
 class MyDocument extends Document {
-    public getInitialProps ({ renderPage }) {
+    public static getInitialProps ({ renderPage }) {
         const sheet = new ServerStyleSheet();
         const page = renderPage((App) => (props) => sheet.collectStyles(<App {...props}/>));
         const styleTags = sheet.getStyleElement();
@@ -21,7 +21,7 @@ class MyDocument extends Document {
                 <meta httpEquiv="X-UA-Compatible" content="ie=edge"/>
                 <title>Deaf Creators</title>
                 <link rel="stylesheet" href="/_next/static/style.css"/>
-                <style dangerouslySetInnerHTML={{__html: styleTags}}/>
+                {styleTags}
             </Head>
             <body>
                 <Main/>
