@@ -11,12 +11,14 @@ class Signup extends React.Component {
                 initialValues={{
                     name: "",
                     email: "",
-                    optInNewsletter: false,
+                    location: "",
+                    interest: "",
                 }}
                 validationSchema={object().shape({
                     name: string(),
                     email: string().email("A valid email must be inputted"),
-                    optInNewsletter: boolean(),
+                    location: string(),
+                    interest: string(),
                 })}
                 onSubmit={(values) => this.onSubmit(values)}
                 render={(props) => (

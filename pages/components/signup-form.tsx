@@ -1,44 +1,57 @@
 import React from "react";
-import { Control, Field as BloomerField, Button, Checkbox, Column, Subtitle } from "bloomer";
-import { FormikProps, Field, Form, FieldProps } from "formik";
+import { Control, Field as BloomerField, Button } from "bloomer";
+import { FormikProps, Field, Form } from "formik";
 import { SignupFormSchema } from "../models";
 import FormTextField from "./form-text-field";
+import styled from "styled-components";
+
+const SubmitButton = styled("button")`
+    border-radius: 15px;
+    padding: 15px 30px;
+    background-color: white;
+    color: black;
+    border: 0;
+    font-size: 14px;
+
+    &:hover {
+        background-color: black;
+        color: white;
+        cursor: pointer;
+    }
+`;
 
 const SignupForm: React.SFC<FormikProps<SignupFormSchema>> = (props) => (
-    <Column isSize="1/3">
-        <Subtitle>We are currently fielding interest:</Subtitle>
+    <>
         <Form>
             <Field name="name" render={(innerProps) => (
                 <FormTextField {...innerProps}
                     label="Your Name"
-                    placeholder="Full Name"
                 />
             )}>
             </Field>
             <Field name="email" render={(innerProps) => (
                 <FormTextField {...innerProps}
                     label="Email Address"
-                    placeholder="Email Address"
                 />
             )}>
             </Field>
-            <Field name="optInNewsletter" render={({ field, form }: FieldProps<SignupFormSchema>) => (
-                <BloomerField>
-                    <Control>
-                        <Checkbox {...field}> Yes, sign me up for the newsletter!</Checkbox>
-                    </Control>
-                </BloomerField>
+            <Field name="location" render={(innerProps) => (
+                <FormTextField {...innerProps}
+                    label="Where are you from?"
+                />
             )}/>
-            <BloomerField isGrouped>
+            <Field name="interest" render={(innerProps) => (
+                <FormTextField {...innerProps}
+                    label="What type of art do you participate in or want to learn about?"
+                />
+            )}/>
+            <BloomerField>
                 <Control>
-                    <Button isColor="primary" type="submit" onClick={() => props.handleSubmit}>Submit</Button>
-                </Control>
-                <Control>
-                    <Button className="is-text" onClick={props.handleReset}>Cancel</Button>
+                    <SubmitButton type="submit" onClick={() => props.handleSubmit}>SUBMIT</SubmitButton>
                 </Control>
             </BloomerField>
         </Form>
-    </Column>
+    </>
 );
 
 export default SignupForm;

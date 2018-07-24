@@ -1,23 +1,28 @@
 import React from "react";
-import { Container, Columns } from "bloomer";
+import { Container, Columns, Column } from "bloomer";
 import Signup from "./components/signup";
 import Footer from "./components/footer";
 import Header from "./components/header";
-import SideImage from "./components/side-image";
+import SocialMedia from "./components/social-media";
 import Hook from "./components/hook";
+import styled from "styled-components";
+
+const Wrapper = styled(Container)`
+    background-color: black;
+`;
 
 const Index: React.SFC = () => (
-    <Container>
+    <Wrapper>
         <Header src="/static/images/dc-logo.png"/>
-        <Columns isCentered>
-            <Hook/>
-        </Columns>
-        <Columns isVCentered>
-            <SideImage/>
-            <Signup/>
+        <Columns>
+            <Column isSize="1/3">
+                <Hook/>
+                <SocialMedia/>
+                <Signup/>
+            </Column>
         </Columns>
         <Footer/>
-    </Container>
+    </Wrapper>
 );
 
 export default Index;

@@ -1,5 +1,6 @@
 export default class SignupFormSchema {
     public name: string = "";
     public email: string = "";
-    public optInNewsletter: boolean = false;
+    public location: string = "";
+    public interest: string = "";
 }
