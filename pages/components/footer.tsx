@@ -6,9 +6,10 @@ import styled from "styled-components";
 
 const Wrapper = styled.footer`
     text-align: center;
-    background-color: papayawhip;
+    background-color: transparent;
     padding: 15px;
     margin-top: 30px;
+    color: white;
 `;
 
 const Footer: React.SFC = () => (
