@@ -8,7 +8,7 @@ import Hook from "./components/hook";
 import styled from "styled-components";
 
 const Wrapper = styled(Container)`
-    background-color: black;
+    background-color: gray;
 `;
 
 const Index: React.SFC = () => (
