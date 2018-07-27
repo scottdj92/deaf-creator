@@ -1,14 +1,8 @@
-import React from "react";
-import styled from "styled-components";
+import React, { CSSProperties } from "react";
 import artists from "../__fixtures__/artists";
-import CrossfadeImage from "react-crossfade-image";
+import CrossFadeImage from "./CrossFadeImage";
 
-const Image = styled.img`
-    object-fit: center;
-    position: fixed;
-    min-height: 100%;
-    min-width: 100%;
-`;
+const ImageStyle: CSSProperties = { objectFit: "cover", position: "fixed", minHeight: "100%", minWidth: "100%"};
 
 interface State {
     artistIndex: number;
@@ -20,26 +14,22 @@ class Background extends React.Component<{}, State> {
         setInterval(this.cycleArtists, 5000);
     }
 
-    public componentWillUnmount () {
-        // clear intervals
-        clearInterval(this.cycleArtists);
-    }
-
     public render () {
         return (
             <>
-                <Image src={artists[this.state.artistIndex].imgUrl}
-                />
+                <CrossFadeImage src={artists[this.state.artistIndex].imgUrl}
+                    style={ImageStyle}
+                    duration={1000}/>
                 {this.props.children}
             </>
         );
     }
 
     private cycleArtists = () => {
-        if (this.state.artistIndex === artists.length) {
+        if (this.state.artistIndex === artists.length - 1) {
             this.setState({ artistIndex: 0 });
         } else {
-            this.setState({ artistIndex: this.state.artistIndex++ });
+            this.setState({ artistIndex: this.state.artistIndex + 1 });
         }
     }
 }
