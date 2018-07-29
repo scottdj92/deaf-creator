@@ -1,9 +1,10 @@
 import React from "react";
-import { Control, Field as BloomerField, Button } from "bloomer";
+import { Control, Field as BloomerField } from "bloomer";
 import { FormikProps, Field, Form } from "formik";
 import { SignupFormSchema } from "../models";
 import FormTextField from "./form-text-field";
 import styled from "styled-components";
+import FormSelectField from "./form-select-field";
 
 const SubmitButton = styled("button")`
     border-radius: 15px;
@@ -41,7 +42,7 @@ const SignupForm: React.SFC<FormikProps<SignupFormSchema>> = (props) => (
                 />
             )}/>
             <Field name="interest" render={(innerProps) => (
-                <FormTextField {...innerProps}
+                <FormSelectField {...innerProps}
                     label="What type of art do you participate in or want to learn about?"
                 />
             )}/>
