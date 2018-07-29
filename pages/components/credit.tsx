@@ -5,6 +5,10 @@ import { ArtistContext } from "./background";
 const Wrapper = styled.div`
     text-align: right;
     color: white;
+
+    @media screen and (max-width: 576px) {
+        text-align: center;
+    }
 `;
 
 const ArtistLink = styled.a`
