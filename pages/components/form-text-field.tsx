@@ -12,7 +12,7 @@ interface Props {
 
 const FormInput = styled("input")`
     border: 0;
-    border-bottom: 5px solid white;
+    border-bottom: 3px solid white;
     color: white;
     font-size: 14px;
     background-color: transparent;
