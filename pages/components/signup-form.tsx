@@ -19,6 +19,11 @@ const SubmitButton = styled("button")`
         color: white;
         cursor: pointer;
     }
+
+    @media screen and (max-width: 576px) {
+        width: 100%;
+        text-align: center;
+    }
 `;
 
 const SignupForm: React.SFC<FormikProps<SignupFormSchema>> = (props) => (
