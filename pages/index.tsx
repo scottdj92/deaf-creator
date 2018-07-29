@@ -4,6 +4,7 @@ import Signup from "./components/signup";
 import Footer from "./components/footer";
 import SocialMedia from "./components/social-media";
 import Hook from "./components/hook";
+import Credits from "./components/credit";
 import styled from "styled-components";
 
 const Wrapper = styled(Container)`
@@ -26,6 +27,11 @@ const Index: React.SFC = () => (
                 <Hook/>
                 <SocialMedia/>
                 <Signup/>
+            </Column>
+        </Columns>
+        <Columns>
+            <Column isSize="1/3" isOffset="2/3">
+                <Credits/>
             </Column>
         </Columns>
         <Footer/>
