@@ -44,9 +44,17 @@ const SignupForm: React.SFC<FormikProps<SignupFormSchema>> = (props) => (
                 />
             )}>
             </Field>
-            <Field name="location" render={(innerProps) => (
-                <FormSelectField {...innerProps} label="Where are you from?">
+            <Field name="cityLocation" render={(innerProps) => (
+                <FormTextField {...innerProps}
+                    label="Where are you from?"
+                    placeholder="City"
+                />
+            )}>
+            </Field>
+            <Field name="stateLocation" render={(innerProps) => (
+                <FormSelectField {...innerProps}>
                     <option disabled value="">-- Select an option --</option>
+                    <option value="International">International</option>
                     {
                         States.states.map( ({ abbreviation, name }) => <option key={abbreviation} value={abbreviation}>{name}</option>)
                     }
