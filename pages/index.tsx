@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Columns, Column } from "bloomer";
 import Signup from "./components/signup";
-import Footer from "./components/footer";
 import SocialMedia from "./components/social-media";
 import Hook from "./components/hook";
 import Credits from "./components/credit";
@@ -34,7 +33,6 @@ const Index: React.SFC = () => (
                 <Credits/>
             </Column>
         </Columns>
-        {/* <Footer/> */}
     </Wrapper>
 );
 
