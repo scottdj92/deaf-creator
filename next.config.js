@@ -3,9 +3,11 @@ const Dotenv = require('dotenv-webpack');
 
 module.exports = withTypeScript({
     webpack(config) {
-        config.plugins.push(new Dotenv({
-            path: "./.env"
-        }));
+        if (process.env.NODE_ENV !== "production") {
+            config.plugins.push(new Dotenv({
+                path: "./.env"
+            }));
+        }
         return config;
     }
 });
