@@ -1,13 +1,14 @@
+require("dotenv").config();
+const path = require("path");
+const Dotenv = require("dotenv-webpack");
 const withTypeScript = require("@zeit/next-typescript");
-const Dotenv = require('dotenv-webpack');
 
 module.exports = withTypeScript({
     webpack(config) {
-        if (process.env.NODE_ENV !== "production") {
-            config.plugins.push(new Dotenv({
-                path: "./.env"
-            }));
-        }
+        config.plugins.push(new Dotenv({
+            path: path.join(__dirname, ".env"),
+            systemvars: true,
+        }));
         return config;
     }
 });
