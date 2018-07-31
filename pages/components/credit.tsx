@@ -7,7 +7,7 @@ const Wrapper = styled.div`
     color: white;
 
     @media screen and (max-width: 576px) {
-        text-align: center;
+        display: none;
     }
 `;
 

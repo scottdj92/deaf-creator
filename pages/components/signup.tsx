@@ -17,8 +17,8 @@ class Signup extends React.Component {
                     interest: "",
                 }}
                 validationSchema={object().shape({
-                    name: string(),
-                    email: string().email("A valid email must be inputted"),
+                    name: string().required("Your name is required"),
+                    email: string().email("A valid email must be inputted").required("Your email address is required"),
                     cityLocation: string(),
                     stateLocation: string(),
                     interest: string(),

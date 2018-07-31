@@ -34,7 +34,7 @@ const Index: React.SFC = () => (
                 <Credits/>
             </Column>
         </Columns>
-        <Footer/>
+        {/* <Footer/> */}
     </Wrapper>
 );
 
