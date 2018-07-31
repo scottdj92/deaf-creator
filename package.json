@@ -7,7 +7,7 @@
     "test": "npm run test",
     "dev": "next",
     "build": "next build",
-    "start": "npm run build && next start"
+    "start": "next start -p 8000"
   },
   "repository": {
     "type": "git",
