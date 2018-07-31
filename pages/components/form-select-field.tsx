@@ -23,7 +23,7 @@ const FormInput = styled("select")`
 `;
 
 type OwnProps = FieldProps<SignupFormSchema> & Props;
-const FormSelectField: React.SFC<OwnProps> = ({ field, form, label }) => (
+const FormSelectField: React.SFC<OwnProps> = ({ field, form, label, children }) => (
     <Field>
         <FormLabel>{label}</FormLabel>
         <Control color={
@@ -33,13 +33,7 @@ const FormSelectField: React.SFC<OwnProps> = ({ field, form, label }) => (
             : ""
         }>
             <FormInput {...field}>
-                <option disabled selected value="">-- Select an option --</option>
-                <option value="Fine Arts">Fine Arts (De'VIA, Painting, Sculpture)</option>
-                <option value="Design">Design (Graphic, Fashion, Industrial, Multimedia, Motion)</option>
-                <option value="Photography/Film">Photography/Film (Filmmakers, Photographers)</option>
-                <option value="Theater">Theater (Actors, Playwrights, Poets, ASL Poetry etc.)</option>
-                <option value="Business">Business (Startups, Networking, Non-profit Organizations)</option>
-                <option value="Technology">Technology (Developers, IT, etc.)</option>
+                {children}
             </FormInput>
         </Control>
         {
