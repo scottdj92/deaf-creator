@@ -32,8 +32,6 @@ class Signup extends React.Component {
     }
 
     private onSubmit = (values: SignupFormSchema) => {
-        console.log(values);
-
         axios.get(process.env.SIGNUP_URL,
         {
             params: {
@@ -41,7 +39,7 @@ class Signup extends React.Component {
                 email: values.email,
                 cityLocation: values.cityLocation,
                 stateLocation: values.stateLocation,
-                interest: values.interest
+                interest: values.interest,
             },
         });
     }
