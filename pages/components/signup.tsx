@@ -3,6 +3,7 @@ import { Formik } from "formik";
 import { SignupFormSchema } from "../models";
 import SignupForm from "./signup-form";
 import { object, string, boolean } from "yup";
+import axios from "axios";
 
 class Signup extends React.Component {
     public render () {
@@ -31,7 +32,16 @@ class Signup extends React.Component {
     }
 
     private onSubmit = (values: SignupFormSchema) => {
-        console.log(values);
+        axios.get(process.env.signup_url,
+        {
+            params: {
+                name: values.name,
+                email: values.email,
+                cityLocation: values.cityLocation,
+                stateLocation: values.stateLocation,
+                interest: values.interest,
+            },
+        });
     }
 }
 
