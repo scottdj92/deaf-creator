@@ -1,4 +1,3 @@
-import "static/index.scss";
 import React from "react";
 import Document, { Head, Main, NextScript } from "next/document";
 import { ServerStyleSheet } from "styled-components";
@@ -20,7 +19,7 @@ class MyDocument extends Document {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
                 <meta httpEquiv="X-UA-Compatible" content="ie=edge"/>
                 <title>Deaf Creators</title>
-                <link rel="stylesheet" href="/_next/static/style.css"/>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"/>
                 {styleTags}
             </Head>
             <body>
