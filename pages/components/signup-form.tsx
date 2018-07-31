@@ -5,6 +5,7 @@ import { SignupFormSchema } from "../models";
 import FormTextField from "./form-text-field";
 import styled from "styled-components";
 import FormSelectField from "./form-select-field";
+const UsaStates = require("usa-states").UsaStates; // Lib didnt compile down to commonjs
 
 const SubmitButton = styled("button")`
     border-radius: 15px;
@@ -26,6 +27,8 @@ const SubmitButton = styled("button")`
     }
 `;
 
+const States = new UsaStates();
+
 const SignupForm: React.SFC<FormikProps<SignupFormSchema>> = (props) => (
     <>
         <Form>
@@ -41,15 +44,32 @@ const SignupForm: React.SFC<FormikProps<SignupFormSchema>> = (props) => (
                 />
             )}>
             </Field>
-            <Field name="location" render={(innerProps) => (
+            <Field name="cityLocation" render={(innerProps) => (
                 <FormTextField {...innerProps}
                     label="Where are you from?"
+                    placeholder="City"
                 />
+            )}>
+            </Field>
+            <Field name="stateLocation" render={(innerProps) => (
+                <FormSelectField {...innerProps}>
+                    <option disabled value="">-- Select an option --</option>
+                    <option value="International">International</option>
+                    {
+                        States.states.map( ({ abbreviation, name }) => <option key={abbreviation} value={abbreviation}>{name}</option>)
+                    }
+                </FormSelectField>
             )}/>
             <Field name="interest" render={(innerProps) => (
-                <FormSelectField {...innerProps}
-                    label="What type of art do you participate in or want to learn about?"
-                />
+                <FormSelectField {...innerProps} label="What type of art do you participate in or want to learn about?">
+                    <option disabled value="">-- Select an option --</option>
+                    <option value="Fine Arts">Fine Arts (De'VIA, Painting, Sculpture)</option>
+                    <option value="Design">Design (Graphic, Fashion, Industrial, Multimedia, Motion)</option>
+                    <option value="Photography/Film">Photography/Film (Filmmakers, Photographers)</option>
+                    <option value="Theater">Theater (Actors, Playwrights, Poets, ASL Poetry etc.)</option>
+                    <option value="Business">Business (Startups, Networking, Non-profit Organizations)</option>
+                    <option value="Technology">Technology (Developers, IT, etc.)</option>
+                </FormSelectField>
             )}/>
             <BloomerField>
                 <Control>
