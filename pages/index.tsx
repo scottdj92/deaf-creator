@@ -3,7 +3,7 @@ import { Container, Columns, Column } from "bloomer";
 import Signup from "./components/signup";
 import SocialMedia from "./components/social-media";
 import Hook from "./components/hook";
-import Credits from "./components/credit";
+import Credit from "./components/credit";
 import styled from "styled-components";
 
 const Wrapper = styled(Container)`
@@ -28,11 +28,7 @@ const Index: React.SFC = () => (
                 <Signup/>
             </Column>
         </Columns>
-        <Columns>
-            <Column isSize="1/3" isOffset="2/3">
-                <Credits/>
-            </Column>
-        </Columns>
+        <Credit/>
     </Wrapper>
 );
 

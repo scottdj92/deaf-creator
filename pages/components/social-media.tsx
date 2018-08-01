@@ -9,7 +9,7 @@ const Facebook = styled(FacebookF)`
     color: white;
 
     &:hover {
-        color: black;
+        color: #363636;
     }
 `;
 
@@ -18,7 +18,7 @@ const InstagramIcon = styled(Instagram)`
     color: white;
 
     &:hover {
-        color: black;
+        color: #363636;
     }
 `;
 
@@ -27,12 +27,16 @@ const TwitterIcon = styled(Twitter)`
     color: white;
 
     &:hover {
-        color: black;
+        color: #363636;
     }
 `;
 
+const Wrapper = styled("div")`
+    margin: 30px 0;
+`;
+
 const SocialMedia: React.SFC = () => (
-    <>
+    <Wrapper>
         <a href="http://www.facebook.com/thedeafcreator">
             <Facebook height={20} width={20}/>
         </a>
@@ -42,7 +46,7 @@ const SocialMedia: React.SFC = () => (
         <a href="http://www.twitter.com/deafcreator">
             <TwitterIcon height={20} width={20}/>
         </a>
-    </>
+    </Wrapper>
 );
 
 export default SocialMedia;

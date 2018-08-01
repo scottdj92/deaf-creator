@@ -5,6 +5,9 @@ import { ArtistContext } from "./background";
 const Wrapper = styled.div`
     text-align: right;
     color: white;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
 
     @media screen and (max-width: 576px) {
         display: none;
