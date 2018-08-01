@@ -4,9 +4,19 @@ import { SignupFormSchema } from "../models";
 import SignupForm from "./signup-form";
 import { object, string, boolean } from "yup";
 import axios from "axios";
+import Confirmation from "./confirmation";
 
-class Signup extends React.Component {
+interface State {
+    confirmed: boolean;
+}
+
+class Signup extends React.Component<{}, State> {
+    public state = { confirmed: false };
     public render () {
+        if (this.state.confirmed) {
+            return <Confirmation/>;
+        }
+
         return (
             <Formik
                 initialValues={{
@@ -41,7 +51,7 @@ class Signup extends React.Component {
                 stateLocation: values.stateLocation,
                 interest: values.interest,
             },
-        });
+        }).then((result) => this.setState({confirmed: true}));
     }
 }
 

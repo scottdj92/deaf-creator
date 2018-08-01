@@ -6,14 +6,16 @@ import FormTextField from "./form-text-field";
 import styled from "styled-components";
 import FormSelectField from "./form-select-field";
 const UsaStates = require("usa-states").UsaStates; // Lib didnt compile down to commonjs
+import Loader from "./loader";
 
 const SubmitButton = styled("button")`
-    border-radius: 15px;
-    padding: 15px 30px;
+    border-radius: 20px;
+    padding: 15px 45px;
     background-color: white;
     color: black;
     border: 0;
     font-size: 14px;
+    margin-top: 30px;
 
     &:hover {
         background-color: black;
@@ -56,7 +58,8 @@ const SignupForm: React.SFC<FormikProps<SignupFormSchema>> = (props) => (
                     <option disabled value="">-- Select an option --</option>
                     <option value="International">International</option>
                     {
-                        States.states.map( ({ abbreviation, name }) => <option key={abbreviation} value={abbreviation}>{name}</option>)
+                        States.states.map( ({ abbreviation, name }) =>
+                            <option key={abbreviation} value={abbreviation}>{name}</option>)
                     }
                 </FormSelectField>
             )}/>
@@ -73,7 +76,9 @@ const SignupForm: React.SFC<FormikProps<SignupFormSchema>> = (props) => (
             )}/>
             <BloomerField>
                 <Control>
-                    <SubmitButton type="submit" onClick={() => props.handleSubmit}>SUBMIT</SubmitButton>
+                    <SubmitButton type="submit" onClick={() => props.handleSubmit}>
+                        {props.isSubmitting ? <Loader/> : null} SUBMIT
+                    </SubmitButton>
                 </Control>
             </BloomerField>
         </Form>
