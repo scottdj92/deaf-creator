@@ -11,6 +11,8 @@ interface Props {
 
 const FormLabel = styled(Label)`
     color: white;
+    font-size: 14px;
+    line-height: 20pt;
 `;
 
 const FormInput = styled("select")`

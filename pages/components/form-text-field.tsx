@@ -21,6 +21,8 @@ const FormInput = styled("input")`
 
 const FormLabel = styled(Label)`
     color: white;
+    font-size: 14px;
+    line-height: 20pt;
 `;
 
 type OwnProps = FieldProps<SignupFormSchema> & Props;

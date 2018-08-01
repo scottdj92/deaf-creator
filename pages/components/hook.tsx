@@ -5,6 +5,8 @@ const Text = styled("p")`
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 20pt;
 `;
 
 const Hook: React.SFC = () => (

@@ -15,7 +15,9 @@ const SubmitButton = styled("button")`
     color: black;
     border: 0;
     font-size: 14px;
+    line-height: 20pt;
     margin-top: 30px;
+    font-weight: bold;
 
     &:hover {
         background-color: black;
