@@ -16,11 +16,6 @@ const artistData: Artist[] = [
         imgUrl: "/static/images/raymond_ramirez_brooklyn.JPG",
         websiteUrl: "https://www.ray-ramirez.com",
     },
-    {
-        fullName: "Ray Ramirez",
-        imgUrl: "/static/images/raymond_ramirez_bridge.JPG",
-        websiteUrl: "https://www.ray-ramirez.com",
-    },
 ];
 
 export default artistData;
