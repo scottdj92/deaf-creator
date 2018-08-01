@@ -19,10 +19,10 @@ const HeaderImage = styled.img`
 `;
 
 const Index: React.SFC = () => (
-    <Wrapper>
+    <Wrapper isFluid>
         <HeaderImage src="/static/images/logo_deafCreator.png"/>
         <Columns>
-            <Column isSize="1/3">
+            <Column isSize={3}>
                 <Hook/>
                 <SocialMedia/>
                 <Signup/>
