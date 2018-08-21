@@ -3,5 +3,5 @@ export default class SignupFormSchema {
     public email: string = "";
     public cityLocation: string = "";
     public stateLocation: string = "";
-    public interest: string = "";
+    public interest: string[] = [];
 }

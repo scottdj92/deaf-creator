@@ -1,5 +1,5 @@
 import React from "react";
-import { Control, Field as BloomerField } from "bloomer";
+import { Control, Field as BloomerField, Columns, Column } from "bloomer";
 import { FormikProps, Field, Form } from "formik";
 import { SignupFormSchema } from "../models";
 import FormTextField from "./form-text-field";
@@ -31,6 +31,19 @@ const SubmitButton = styled("button")`
     }
 `;
 
+const StateLocationField = styled(FormSelectField)`
+    @media screen and (min-width: 768px) {
+        position: absolute;
+        bottom: 12px;
+    }
+`;
+
+const StateLocationColumn = styled(Column)`
+    @media screen and (min-width: 768px) {
+        position: relative;
+    };
+`;
+
 const States = new UsaStates();
 
 const SignupForm: React.SFC<FormikProps<SignupFormSchema>> = (props) => (
@@ -48,25 +61,32 @@ const SignupForm: React.SFC<FormikProps<SignupFormSchema>> = (props) => (
                 />
             )}>
             </Field>
-            <Field name="cityLocation" render={(innerProps) => (
-                <FormTextField {...innerProps}
-                    label="Where are you from?"
-                    placeholder="City"
-                />
-            )}>
-            </Field>
-            <Field name="stateLocation" render={(innerProps) => (
-                <FormSelectField {...innerProps}>
-                    <option disabled value="">-- Select an option --</option>
-                    <option value="International">International</option>
-                    {
-                        States.states.map( ({ abbreviation, name }) =>
-                            <option key={abbreviation} value={abbreviation}>{name}</option>)
-                    }
-                </FormSelectField>
-            )}/>
+            <Columns>
+                <Column isSize={{ mobile: 12, tablet: 6 }}>
+                    <Field name="cityLocation" render={(innerProps) => (
+                        <FormTextField {...innerProps}
+                            label="Where are you from?"
+                            placeholder="City"
+                        />
+                    )}>
+                    </Field>
+                </Column>
+                <StateLocationColumn isSize={{ mobile: 12, tablet: 6 }}>
+                    <Field name="stateLocation" render={(innerProps) => (
+                        <StateLocationField {...innerProps}>
+                            <option disabled value="">State</option>
+                            <option value="International">International</option>
+                            {
+                                States.states.map( ({ abbreviation, name }) =>
+                                    <option key={abbreviation} value={abbreviation}>{name}</option>)
+                            }
+                        </StateLocationField>
+                    )}/>
+                </StateLocationColumn>
+            </Columns>
             <Field name="interest" render={(innerProps) => (
-                <FormSelectField {...innerProps} label="What type of art do you participate in or want to learn about?">
+                <FormSelectField {...innerProps} isMultiple
+                    label="What types of topics are you involved in or want to learn more about?">
                     <option disabled value="">-- Select an option --</option>
                     <option value="Fine Arts">Fine Arts (De'VIA, Painting, Sculpture)</option>
                     <option value="Design">Design (Graphic, Fashion, Industrial, Multimedia, Motion)</option>

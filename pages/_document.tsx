@@ -20,6 +20,7 @@ class MyDocument extends Document {
                 <meta httpEquiv="X-UA-Compatible" content="ie=edge"/>
                 <link rel="shortcut icon" href="/static/images/favicon.ico" type="image/x-icon"/>
                 <title>Deaf Creators</title>
+                <link rel="stylesheet" href="/static/css/normalize.css"/>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"/>
                 {styleTags}
             </Head>
