@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from "react";
 import { Control, Field, Label } from "bloomer";
-import { FieldProps } from "formik";
+import { FieldProps, Field as FormikField } from "formik";
 import { SignupFormSchema } from "../models";
 import styled from "styled-components";
 import FormError from "./form-error";
@@ -8,6 +8,7 @@ import FormError from "./form-error";
 interface Props {
     label: string;
     isMultiple?: boolean;
+    setField: (field: string, value: any, shouldValidate?: boolean) => void;
 }
 
 const FormLabel = styled(Label)`
@@ -21,7 +22,7 @@ const FormLabel = styled(Label)`
     };
 `;
 
-const FormInput = styled("select")`
+const FormInput = styled(FormikField)`
     border: 0;
     border-bottom: 1px solid white;
     color: white;
@@ -32,7 +33,7 @@ const FormInput = styled("select")`
 `;
 
 type OwnProps = FieldProps<SignupFormSchema> & Props & HTMLAttributes<HTMLDivElement>;
-const FormSelectField: React.SFC<OwnProps> = ({ field, form, label, children, className, isMultiple }) => (
+const FormSelectField: React.SFC<OwnProps> = ({ field, form, label, className, isMultiple, setField }) => (
     <Field className={className}>
         <FormLabel>{label}</FormLabel>
         <Control color={
@@ -41,8 +42,22 @@ const FormSelectField: React.SFC<OwnProps> = ({ field, form, label, children, cl
             ? "warning"
             : ""
         }>
-            <FormInput {...field} multiple={ isMultiple }>
-                {children}
+            <FormInput {...field} component="select" multiple={isMultiple}
+                onChange={(e) => {
+                    setField(
+                        field.name,
+                        [].slice.call(e.target.selectedOptions)
+                        .filter((option) => option.value !== "")
+                        .map((option) => option.value),
+                    );
+                }}>
+                <option disabled value="">-- Select an option --</option>
+                <option value="Fine Arts">Fine Arts (De'VIA, Painting, Sculpture)</option>
+                <option value="Design">Design (Graphic, Fashion, Industrial, Multimedia, Motion)</option>
+                <option value="Photography/Film">Photography/Film (Filmmakers, Photographers)</option>
+                <option value="Theater">Theater (Actors, Playwrights, Poets, ASL Poetry etc.)</option>
+                <option value="Business">Business (Startups, Networking, Non-profit Organizations)</option>
+                <option value="Technology">Technology (Developers, IT, etc.)</option>
             </FormInput>
         </Control>
         {

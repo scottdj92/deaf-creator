@@ -85,16 +85,8 @@ const SignupForm: React.SFC<FormikProps<SignupFormSchema>> = (props) => (
                 </StateLocationColumn>
             </Columns>
             <Field name="interest" render={(innerProps) => (
-                <FormSelectField {...innerProps} isMultiple
-                    label="What types of topics are you involved in or want to learn more about?">
-                    <option disabled value="">-- Select an option --</option>
-                    <option value="Fine Arts">Fine Arts (De'VIA, Painting, Sculpture)</option>
-                    <option value="Design">Design (Graphic, Fashion, Industrial, Multimedia, Motion)</option>
-                    <option value="Photography/Film">Photography/Film (Filmmakers, Photographers)</option>
-                    <option value="Theater">Theater (Actors, Playwrights, Poets, ASL Poetry etc.)</option>
-                    <option value="Business">Business (Startups, Networking, Non-profit Organizations)</option>
-                    <option value="Technology">Technology (Developers, IT, etc.)</option>
-                </FormSelectField>
+                <FormSelectField {...innerProps} isMultiple setField={props.setFieldValue}
+                    label="What types of topics are you involved in or want to learn more about?"/>
             )}/>
             <BloomerField>
                 <Control>

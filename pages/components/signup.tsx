@@ -34,6 +34,7 @@ class Signup extends React.Component<{}, State> {
                     interest: array().of(string()),
                 })}
                 onSubmit={(values) => console.log(values)}
+
                 render={(props) => (
                     <SignupForm {...props}/>
                 )}>
