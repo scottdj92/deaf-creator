@@ -12,17 +12,30 @@ interface Props {
 
 const FormInput = styled("input")`
     border: 0;
-    border-bottom: 3px solid white;
+    border-bottom: 1px solid white;
     color: white;
     font-size: 14px;
     background-color: transparent;
     width: 100%;
+    margin-bottom: 15px;
+
+    &:placeholder-shown {
+        color: white;
+    }
+    &::-moz-placeholder {
+        opacity: 1;
+    }
 `;
 
 const FormLabel = styled(Label)`
     color: white;
     font-size: 14px;
     line-height: 20pt;
+    margin-bottom: 0;
+
+    @media screen and (max-width: 768px) {
+        margin-bottom: inherit;
+    };
 `;
 
 type OwnProps = FieldProps<SignupFormSchema> & Props;

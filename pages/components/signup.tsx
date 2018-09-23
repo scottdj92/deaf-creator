@@ -2,7 +2,7 @@ import React from "react";
 import { Formik } from "formik";
 import { SignupFormSchema } from "../models";
 import SignupForm from "./signup-form";
-import { object, string, boolean } from "yup";
+import { object, string, boolean, array } from "yup";
 import axios from "axios";
 import Confirmation from "./confirmation";
 
@@ -24,16 +24,17 @@ class Signup extends React.Component<{}, State> {
                     email: "",
                     cityLocation: "",
                     stateLocation: "",
-                    interest: "",
+                    interest: [""],
                 }}
                 validationSchema={object().shape({
                     name: string().required("Your name is required"),
                     email: string().email("A valid email must be inputted").required("Your email address is required"),
                     cityLocation: string(),
                     stateLocation: string(),
-                    interest: string(),
+                    interest: array().of(string()),
                 })}
-                onSubmit={(values) => this.onSubmit(values)}
+                onSubmit={(values) => console.log(values)}
+
                 render={(props) => (
                     <SignupForm {...props}/>
                 )}>
