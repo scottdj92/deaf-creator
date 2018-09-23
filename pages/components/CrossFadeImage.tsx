@@ -52,9 +52,15 @@ class CrossFadeImage extends React.Component<Props, State> {
         const { topSrc, bottomOpacity, bottomSrc } = this.state;
 
         return (
-            <div style={{ maxWidth: "100%", maxHeight: "100%" }} className={containerClassName}>
+            <div style={{ maxWidth: "100%", maxHeight: "104%" }} className={containerClassName}>
                 { topSrc &&
-                    <img style={{ maxWidth: "100%", maxHeight: "100%", position: "absolute", ...style }}
+                    <img style={{
+                            maxWidth: "100%",
+                            maxHeight: "104%",
+                            position: "absolute",
+                            minHeight: "104%",
+                            ...style,
+                        }}
                         src={topSrc}
                         alt={alt}
                     />
@@ -62,7 +68,7 @@ class CrossFadeImage extends React.Component<Props, State> {
                 { bottomSrc &&
                     <img style={{
                         maxWidth: "100%",
-                        maxHeight: "100%",
+                        maxHeight: "104%",
                         opacity: bottomOpacity,
                         transition: `opacity ${duration / 1000}s ${timingFunction} ${delay / 1000}s`,
                         ...style,

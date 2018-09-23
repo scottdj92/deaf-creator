@@ -10,13 +10,13 @@ import Loader from "./loader";
 
 const SubmitButton = styled("button")`
     border-radius: 20px;
-    padding: 15px 45px;
+    padding: 5px 30px;
     background-color: white;
     color: black;
     border: 0;
     font-size: 14px;
     line-height: 20pt;
-    margin-top: 30px;
+    margin-top: 10px;
     font-weight: bold;
 
     &:hover {
