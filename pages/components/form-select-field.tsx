@@ -33,7 +33,7 @@ const FormInput = styled(FormikField)`
 `;
 
 type OwnProps = FieldProps<SignupFormSchema> & Props & HTMLAttributes<HTMLDivElement>;
-const FormSelectField: React.SFC<OwnProps> = ({ field, form, label, className, isMultiple, setField }) => (
+const FormSelectField: React.SFC<OwnProps> = ({ field, children, form, label, className, isMultiple, setField }) => (
     <Field className={className}>
         <FormLabel>{label}</FormLabel>
         <Control color={
@@ -44,20 +44,21 @@ const FormSelectField: React.SFC<OwnProps> = ({ field, form, label, className, i
         }>
             <FormInput {...field} component="select" multiple={isMultiple}
                 onChange={(e) => {
-                    setField(
-                        field.name,
-                        [].slice.call(e.target.selectedOptions)
-                        .filter((option) => option.value !== "")
-                        .map((option) => option.value),
-                    );
+                    if (isMultiple) {
+                        setField(
+                            field.name,
+                            [].slice.call(e.target.selectedOptions)
+                            .filter((option) => option.value !== "")
+                            .map((option) => option.value),
+                        );
+                    } else {
+                        setField(
+                            field.name,
+                            e.target.value,
+                        );
+                    }
                 }}>
-                <option disabled value="">-- Select an option --</option>
-                <option value="Fine Arts">Fine Arts (De'VIA, Painting, Sculpture)</option>
-                <option value="Design">Design (Graphic, Fashion, Industrial, Multimedia, Motion)</option>
-                <option value="Photography/Film">Photography/Film (Filmmakers, Photographers)</option>
-                <option value="Theater">Theater (Actors, Playwrights, Poets, ASL Poetry etc.)</option>
-                <option value="Business">Business (Startups, Networking, Non-profit Organizations)</option>
-                <option value="Technology">Technology (Developers, IT, etc.)</option>
+                {children}
             </FormInput>
         </Control>
         {
