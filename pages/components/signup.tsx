@@ -33,7 +33,16 @@ class Signup extends React.Component<{}, State> {
                     stateLocation: string(),
                     interest: array().of(string()),
                 })}
-                onSubmit={(values) => console.log(values)}
+                onSubmit={(values: SignupFormSchema) => {
+                    const parsedInfo = {
+                        name: values.name,
+                        email: values.email,
+                        cityLocation: values.cityLocation,
+                        stateLocation: values.stateLocation,
+                        interest: values.interest.join(),
+                    };
+                    this.onSubmit(parsedInfo);
+                }}
 
                 render={(props) => (
                     <SignupForm {...props}/>
@@ -42,7 +51,7 @@ class Signup extends React.Component<{}, State> {
         );
     }
 
-    private onSubmit = (values: SignupFormSchema) => {
+    private onSubmit = (values) => {
         axios.get(process.env.SIGNUP_URL,
         {
             params: {

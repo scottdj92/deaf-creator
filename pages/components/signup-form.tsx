@@ -85,7 +85,8 @@ const SignupForm: React.SFC<FormikProps<SignupFormSchema>> = (props) => (
         </Columns>
         <Field name="interest" render={(innerProps) => (
             <FormSelectField {...innerProps} isMultiple setField={props.setFieldValue}
-                label="What types of topics are you involved in or want to learn more about?">
+                // tslint:disable-next-line:max-line-length
+                label="What types of topics are you involved in or want to learn more about? (hold down Ctrl or Command to select multiple items)">
                 <option disabled value="">-- Select an option --</option>
                 <option value="Fine Arts">Fine Arts (De'VIA, Painting, Sculpture)</option>
                 <option value="Design">Design (Graphic, Fashion, Industrial, Multimedia, Motion)</option>
