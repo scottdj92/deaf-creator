@@ -11,6 +11,12 @@ const artistData: Artist[] = [
         imgUrl: "/static/images/raymond_ramirez_bird.JPG",
         websiteUrl: "https://www.ray-ramirez.com",
     },
+    {
+        fullName: "Julian Moiwai",
+        imgUrl: "/static/images/julian_moiwai_forest.jpg",
+        websiteUrl: "https://www.julianmoiwai.com/",
+        isInverse: true,
+    },
 ];
 
 export default artistData;

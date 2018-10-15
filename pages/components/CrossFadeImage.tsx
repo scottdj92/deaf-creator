@@ -39,7 +39,7 @@ class CrossFadeImage extends React.Component<Props, State> {
                 this.setState({ bottomSrc: prevProps.src, topSrc: this.props.src, bottomOpacity: 0.99 }, () => {
                     // TODO: type this
                     if (!this.timeout) {
-                        clearTimeout(this.timeout)
+                        clearTimeout(this.timeout);
                     }
                     this.timeout = setTimeout( () => this.setState({ bottomOpacity: 0 }), 20);
                 }),
