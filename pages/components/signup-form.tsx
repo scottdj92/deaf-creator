@@ -28,6 +28,7 @@ const SubmitButton = styled("button")`
     @media screen and (max-width: 576px) {
         width: 100%;
         text-align: center;
+        margin-bottom: 30px;
     }
 `;
 
@@ -88,12 +89,13 @@ const SignupForm: React.SFC<FormikProps<SignupFormSchema>> = (props) => (
                 // tslint:disable-next-line:max-line-length
                 label="What types of topics are you involved in or want to learn more about? (hold down Ctrl or Command to select multiple items)">
                 <option disabled value="">-- Select an option --</option>
-                <option value="Fine Arts">Fine Arts (De'VIA, Painting, Sculpture)</option>
-                <option value="Design">Design (Graphic, Fashion, Industrial, Multimedia, Motion)</option>
-                <option value="Photography/Film">Photography/Film (Filmmakers, Photographers)</option>
+                <option value="Fine Arts">Fine Arts (De'VIA, Painting, Sculpture, Glass, etc.)</option>
+                <option value="Design">Design (Graphic, Industrial, Multimedia, Motion, etc.)</option>
+                <option value="Photography/Film">Photography/Film (Filmmakers, Photographers, etc.)</option>
                 <option value="Theater">Theater (Actors, Playwrights, Poets, ASL Poetry etc.)</option>
                 <option value="Business">Business (Startups, Networking, Non-profit Organizations)</option>
-                <option value="Technology">Technology (Developers, IT, etc.)</option>
+                <option value="Technology">Technology (Developers, IT, Makers, Coders, etc.)</option>
+                <option value="Other">Other</option>
             </FormSelectField>
         )}/>
         <BloomerField>
