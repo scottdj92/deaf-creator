@@ -1,6 +1,7 @@
 import React from "react";
 import App, { Container } from "next/app";
 import Background from "./components/background";
+import Head from "next/head";
 
 export default class MyApp extends App {
     public static async getInitialProps ({ Component, router, ctx }) {
@@ -17,6 +18,9 @@ export default class MyApp extends App {
         const { Component, pageProps } = this.props;
         return (
             <Container>
+                <Head>
+                    <title>Deaf Creator</title>
+                </Head>
                 <Background>
                     <Component {...pageProps }/>
                 </Background>
